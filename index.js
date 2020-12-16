@@ -9,24 +9,58 @@ $("#pageIndex").on("click",function(e){
 	}
 	if(text == 0){
 		// 测试，加载本地数据
-		jsonData = testData;
+		jsonData = testDataJson;
 		pageIndex = 1;
 		parsingData();
 		return;
 	}
-	$.ajax({
-		type: "get",
-		url: text + ".json",
-		dataType: "json",
-		success: function(data){
-			jsonData = data;
-			pageIndex = 1;
-			parsingData();
-		},
-		error: function(){
-			alert("json加载失败");
+	try {
+		jsonData = $.ajax({url:text + ".json",async:false}).responseText;
+		try{
+			jsonData = JSON.parse(jsonData);
+		} catch(err) {
+			var tempArr = [];
+			var arr = jsonData.split(/\n/);
+			for(var i=0;i<arr.length;i++){
+				var arri = arr[i];
+				var arriArr = arri.split(",");
+				var obj = {"downUrl":window.btoa(arriArr[1]),"resourcesName":window.btoa(arriArr[0])};
+				tempArr.push(obj);
+			}
+			jsonData = [tempArr];
 		}
-	})
+		pageIndex = 1;
+		parsingData();
+	} catch(err) {
+		alert("json加载失败" + err);
+	}
+//	$.ajax({
+//		type: "get",
+//		url: text + ".json",
+//		dataType: "txt",
+//		async: false,
+//		success: function(data){
+//			console.log(data);
+//			if (typeof data == 'string') {
+//				var tempArr = [];
+//				var arr = testDataTxt.split(/\r\n/);
+//				for(var i=0;i<arr.length;i++){
+//					var arri = arr[i];
+//					var arriArr = arri.split(",");
+//					var obj = {"downUrl":window.btoa(arriArr[1]),"resourcesName":window.btoa(arriArr[0])};
+//					tempArr.push(obj);
+//				}
+//				jsonData = [tempArr];
+//			}else{
+//				jsonData = data;
+//			}
+//			pageIndex = 1;
+//			parsingData();
+//		},
+//		error: function(){
+//			alert("json加载失败");
+//		}
+//	})
 });
 
 //解析数据
@@ -120,7 +154,9 @@ let Base64 = {
     }
 };
 
-var testData = [
+var testDataTxt = "86,http://117.169.72.135:8080/PLTV/88888888/224/3221225618/index.m3u8\r\n"+"85,http://ott.fj.chinamobile.com/PLTV/88888888/224/3221225931/index.m3u8";
+
+var testDataJson = [
     [
         {
             "createTime":1594263714808,

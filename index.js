@@ -15,15 +15,15 @@ $("#pageIndex").on("click",function(e){
 		return;
 	}
 	$.ajax({
-		type:"get",
-		url:"https://bk.gitee.io/" + text + ".json",
-		dataType:"json",
-		success:function(data){
+		type: "get",
+		url: text + ".json",
+		dataType: "json",
+		success: function(data){
 			jsonData = data;
 			pageIndex = 1;
 			parsingData();
 		},
-		error:function(){
+		error: function(){
 			alert("json加载失败");
 		}
 	})

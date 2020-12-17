@@ -33,8 +33,8 @@ $("#pageIndex").on("click",function(e){
 		return;
 	}
 	try {
-		jsonData = $.ajax({url:text + ".json",async:false}).responseText;
-//		jsonData = testDataTxt;
+//		jsonData = $.ajax({url:text + ".json",async:false}).responseText;
+		jsonData = testDataTxt;
 		try{
 			jsonData = JSON.parse(jsonData);
 		} catch(err) {
@@ -45,7 +45,7 @@ $("#pageIndex").on("click",function(e){
 			var arr = jsonData.match(reg);
 			var tempArr = [];
 			for(var i=0;i<arr.length;i++){
-				var obj = {"downUrl":window.btoa(arr[i]),"resourcesName":window.btoa(arr[i])};
+				var obj = {"downUrl":window.btoa(arr[i])};
 				tempArr.push(obj);
 			}
 			jsonData = [tempArr];
@@ -76,13 +76,20 @@ function parsingData(){
 				var currentPageIndexImg = currentPageIndexInfo.noImagesList[j];
 				html += "<img src='"+window.atob(currentPageIndexImg.imagesUrl)+"' alt='11'>";
 			}
+		}else{
+			html += "<img src='https://noo.gitee.io/%E9%BB%98%E8%AE%A4%E5%9B%BE%E7%89%87.svg' alt='11'>";
 		}
 		html += "</div><div class='title'><a";
 		if(currentPageIndexInfo.browseStatus == '1'){
 			html += " style='color: red;'";
 		}
-		html += " url='"+currentPageIndexInfo.downUrl+"'";
-		html += ">"+Base64.decode(currentPageIndexInfo.resourcesName)+"</a></div>";
+		html += " url='"+currentPageIndexInfo.downUrl+"'>";
+		if(currentPageIndexInfo.resourcesName != null){
+			html += Base64.decode(currentPageIndexInfo.resourcesName);
+		}else{
+			html += Base64.decode(currentPageIndexInfo.downUrl);
+		}
+		html += "</a></div>";
 	}
 	$("#main").html(html);
 	$("#pageIndex").html(pageIndex);

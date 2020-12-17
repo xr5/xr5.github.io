@@ -24,7 +24,7 @@ $("#pageIndex").on("click",function(e){
 		for(var i=0;i<arr.length;i++){
 			var arri = arr[i];
 			var arriArr = arri.split(",");
-			var obj = {"downUrl":window.btoa(arriArr[1]),"resourcesName":window.btoa(arriArr[0])};
+			var obj = {"downUrl":Base64.encode(arriArr[1]),"resourcesName":Base64.encode(arriArr[0])};
 			tempArr.push(obj);
 		}
 		jsonData = [tempArr];
@@ -45,7 +45,7 @@ $("#pageIndex").on("click",function(e){
 			var arr = jsonData.match(reg);
 			var tempArr = [];
 			for(var i=0;i<arr.length;i++){
-				var obj = {"downUrl":window.btoa(arr[i])};
+				var obj = {"downUrl":Base64.encode(arr[i])};
 				tempArr.push(obj);
 			}
 			jsonData = [tempArr];
@@ -158,7 +158,7 @@ let Base64 = {
     }
 };
 
-var testDataTxt = "86,http://117.169.72.135:8080/PLTV/88888888/224/3221225618/index.m3u8\r\n"+"85,http://ott.fj.chinamobile.com/PLTV/88888888/224/3221225931/index.m3u8";
+var testDataTxt = "86测试,http://117.169.72.135:8080/PLTV/88888888/224/3221225618/index.m3u8\r\n"+"85天天,http://ott.fj.chinamobile.com/PLTV/88888888/224/3221225931/index.m3u8";
 
 var testDataJson = [
     [

@@ -14,21 +14,44 @@ $("#pageIndex").on("click",function(e){
 		parsingData();
 		return;
 	}
+	if(text == "a"){
+		// 模式a
+		text = prompt();
+		jsonData = $.ajax({url:text + ".json",async:false}).responseText;
+//		jsonData = testDataTxt;
+		var tempArr = [];
+		var arr = jsonData.split(/\n/);
+		for(var i=0;i<arr.length;i++){
+			var arri = arr[i];
+			var arriArr = arri.split(",");
+			var obj = {"downUrl":window.btoa(arriArr[1]),"resourcesName":window.btoa(arriArr[0])};
+			tempArr.push(obj);
+		}
+		jsonData = [tempArr];
+		pageIndex = 1;
+		parsingData();
+		return;
+	}
 	try {
 		jsonData = $.ajax({url:text + ".json",async:false}).responseText;
 //		jsonData = testDataTxt;
 		try{
 			jsonData = JSON.parse(jsonData);
 		} catch(err) {
+			// 正则模式
+			var reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-|:)+)/g;
+			// var reg= /(https?|http):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/g;
+			// var reg= /(https?|http):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+\.(mp4|m3u8|avi|rmvb)/gi;
+			var arr = jsonData.match(reg);
 			var tempArr = [];
-			var arr = jsonData.split(/\n/);
 			for(var i=0;i<arr.length;i++){
-				var arri = arr[i];
-				var arriArr = arri.split(",");
-				var obj = {"downUrl":window.btoa(arriArr[1]),"resourcesName":window.btoa(arriArr[0])};
+				var obj = {"downUrl":window.btoa(arr[i]),"resourcesName":window.btoa(arr[i])};
 				tempArr.push(obj);
 			}
 			jsonData = [tempArr];
+			pageIndex = 1;
+			parsingData();
+			return;
 		}
 		pageIndex = 1;
 		parsingData();

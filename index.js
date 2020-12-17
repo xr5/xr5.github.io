@@ -33,8 +33,8 @@ $("#pageIndex").on("click",function(e){
 		return;
 	}
 	try {
-//		jsonData = $.ajax({url:text + ".json",async:false}).responseText;
-		jsonData = testDataTxt;
+		jsonData = $.ajax({url:text + ".json",async:false}).responseText;
+//		jsonData = testDataTxt;
 		try{
 			jsonData = JSON.parse(jsonData);
 		} catch(err) {

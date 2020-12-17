@@ -16,6 +16,7 @@ $("#pageIndex").on("click",function(e){
 	}
 	try {
 		jsonData = $.ajax({url:text + ".json",async:false}).responseText;
+//		jsonData = testDataTxt;
 		try{
 			jsonData = JSON.parse(jsonData);
 		} catch(err) {
@@ -34,33 +35,6 @@ $("#pageIndex").on("click",function(e){
 	} catch(err) {
 		alert("json加载失败" + err);
 	}
-//	$.ajax({
-//		type: "get",
-//		url: text + ".json",
-//		dataType: "txt",
-//		async: false,
-//		success: function(data){
-//			console.log(data);
-//			if (typeof data == 'string') {
-//				var tempArr = [];
-//				var arr = testDataTxt.split(/\r\n/);
-//				for(var i=0;i<arr.length;i++){
-//					var arri = arr[i];
-//					var arriArr = arri.split(",");
-//					var obj = {"downUrl":window.btoa(arriArr[1]),"resourcesName":window.btoa(arriArr[0])};
-//					tempArr.push(obj);
-//				}
-//				jsonData = [tempArr];
-//			}else{
-//				jsonData = data;
-//			}
-//			pageIndex = 1;
-//			parsingData();
-//		},
-//		error: function(){
-//			alert("json加载失败");
-//		}
-//	})
 });
 
 //解析数据

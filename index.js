@@ -74,7 +74,7 @@ function parsingData(){
 		if(currentPageIndexInfo.noImagesList != null){
 			for(var j=0;j<currentPageIndexInfo.noImagesList.length;j++){
 				var currentPageIndexImg = currentPageIndexInfo.noImagesList[j];
-				html += "<img src='"+window.atob(currentPageIndexImg.imagesUrl)+"' alt='11'>";
+				html += "<img src='"+Base64.decode(currentPageIndexImg.imagesUrl)+"' alt='11'>";
 			}
 		}else{
 			html += "<img src='https://noo.gitee.io/%E9%BB%98%E8%AE%A4%E5%9B%BE%E7%89%87.svg' alt='11'>";
@@ -122,8 +122,7 @@ $("h4").on("click","a",function(e){
 
 // 点击详情事件
 $("#main").on("click",".title",function(e){
-	$("video").attr("src",window.atob($(e.target).attr("url")));
-	$(".body").toggle();
+	$("video").attr("src",Base64.decode($(e.target).attr("url")));
 	$(".pop").toggle();
 });
 
@@ -134,7 +133,6 @@ $("#abbreviatedOpen").on("click",function(e){
 
 // 小按钮功能
 $(".suspension").on("click",function(){
-	$(".body").toggle();
 	$(".pop").toggle();
 	$("video").attr("src","");
 });
@@ -145,12 +143,14 @@ $(".suspension").on("click",function(){
  * 公共方法
  */
 let Base64 = {
+	// 加密
     encode(str) {
         return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
             function toSolidBytes(match, p1) {
                 return String.fromCharCode('0x' + p1);
             }));
     },
+    // 解密
     decode(str) {
         return decodeURIComponent(atob(str).split('').map(function (c) {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);

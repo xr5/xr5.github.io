@@ -124,6 +124,7 @@ $("h4").on("click","a",function(e){
 $("#main").on("click",".title",function(e){
 	$("video").attr("src",Base64.decode($(e.target).attr("url")));
 	$(".pop").toggle();
+	$("video")[0].play();
 });
 
 // 缩略模式
@@ -134,7 +135,8 @@ $("#abbreviatedOpen").on("click",function(e){
 // 小按钮功能
 $(".suspension").on("click",function(){
 	$(".pop").toggle();
-	$("video").attr("src","");
+	$("video")[0].pause();
+	$("video").removeAttr("src");
 });
 
 

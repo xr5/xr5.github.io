@@ -19,15 +19,19 @@ $("#pageIndex").on("click",function(e){
 		text = prompt();
 		jsonData = $.ajax({url:text + ".json",async:false}).responseText;
 //		jsonData = testDataTxt;
-		var tempArr = [];
 		var arr = jsonData.split(/\n/);
+		var tempArr = [];
+		jsonData = [];
 		for(var i=0;i<arr.length;i++){
 			var arri = arr[i];
 			var arriArr = arri.split(",");
 			var obj = {"downUrl":Base64.encode(arriArr[1]),"resourcesName":Base64.encode(arriArr[0])};
 			tempArr.push(obj);
+			if((i+1) % 50 == 0 || i == arr.length-1){
+				jsonData.push(tempArr);
+				tempArr = [];
+			}
 		}
-		jsonData = [tempArr];
 		pageIndex = 1;
 		parsingData();
 		return;
@@ -44,11 +48,15 @@ $("#pageIndex").on("click",function(e){
 			// var reg= /(https?|http):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+\.(mp4|m3u8|avi|rmvb)/gi;
 			var arr = jsonData.match(reg);
 			var tempArr = [];
+			jsonData = [];
 			for(var i=0;i<arr.length;i++){
 				var obj = {"downUrl":Base64.encode(arr[i])};
 				tempArr.push(obj);
+				if((i+1) % 50 == 0 || i == arr.length-1){
+					jsonData.push(tempArr);
+					tempArr = [];
+				}
 			}
-			jsonData = [tempArr];
 			pageIndex = 1;
 			parsingData();
 			return;

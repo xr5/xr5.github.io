@@ -1,0 +1,199 @@
+[
+  {
+    "id": 1,
+    "key": "39kan",
+    "name": "39影视",
+    "api": "https://www.39kan.com/api.php/provide/vod/at/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 2,
+    "key": "vipmv",
+    "name": "天堂资源",
+    "api": "http://vipmv.cc/api.php/provide/vod/at/xml",
+    "jiexiUrl": "https://titan.mgtv.com.o8tv.com/jiexi/?url=",
+    "group": "影视",
+    "isActive": false,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 3,
+    "key": "6Uzy",
+    "name": "6U资源",
+    "api": "http://zy.ataoju.com/inc/api.php",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 4,
+    "key": "lehootv",
+    "name": "乐活影视",
+    "api": "https://lehootv.com/api.php/provide/vod/at/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 5,
+    "key": "apibdzy",
+    "name": "百度云资源",
+    "api": "https://api.apibdzy.com/api.php/provide/vod/at/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 6,
+    "key": "foxzyapi",
+    "name": "FOX资源",
+    "api": "https://api.foxzyapi.com/api.php/provide/vod/from/foxyun/at/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 7,
+    "key": "fqzy",
+    "name": "番茄影视资源网",
+    "api": "http://api.fqzy.cc/seacmsapi.php/provide/vod/at/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 8,
+    "key": "xinlangapi",
+    "name": "新浪资源",
+    "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/at/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 9,
+    "key": "lziapi",
+    "name": "量子资源",
+    "api": "https://cj.lziapi.com/api.php/provide/vod/from/liangzi/at/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 10,
+    "key": "yparse",
+    "name": "步步高资源",
+    "api": "https://api.yparse.com/api/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 11,
+    "key": "ckzy",
+    "name": "CK资源",
+    "api": "https://ckzy.me/api.php/provide/vod/at/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 12,
+    "key": "guangsuapi",
+    "name": "光速资源",
+    "api": "https://api.guangsuapi.com/api.php/provide/vod/at/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 13,
+    "key": "tiankongapi",
+    "name": "天空资源",
+    "api": "https://api.tiankongapi.com/api.php/provide/vod/at/xml/from/tkm3u8",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 14,
+    "key": "bajiecaiji",
+    "name": "八戒采集",
+    "api": "http://cj.bajiecaiji.com/inc/bjm3u8.php",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "id": 15,
+    "key": "kudian8",
+    "name": "酷点资源",
+    "api": "https://kudian8.com/api.php/provide/vod/at/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "key": "zm3fr26s",
+    "id": 16,
+    "name": "速影",
+    "api": "https://xn--128-zm3fr26s.xyz/inc/api.php",
+    "group": "影视",
+    "isActive": true,
+    "reverseOrder": false,
+    "status": "可用"
+  },
+  {
+    "id": 17,
+    "key": "zzrhgg",
+    "name": "飘花资源",
+    "api": "http://www.zzrhgg.com/api.php/provide/vod/at/xml",
+    "jiexiUrl": "",
+    "group": "影视",
+    "isActive": true,
+    "status": "可用",
+    "reverseOrder": false
+  },
+  {
+    "key": "lovedan",
+    "id": 18,
+    "name": "哎旦影视",
+    "api": "https://www.lovedan.net/api.php/provide/vod/at/xml/",
+    "download": "",
+    "group": "影视",
+    "isActive": true,
+    "reverseOrder": false,
+    "status": "可用"
+  }
+]
